@@ -3,7 +3,7 @@ package com.koala.juc.thread8MonitorTest11;
 /**
  * Create by koala on 2020-04-02
  *
- * 该方法存在问题，无需关注
+ * 4.一个静态同步方法，一个普通同步方法，一个 Number 对象， 打印？ //随机
  *
  */
 public class TestThread8Monitor05 {
@@ -25,12 +25,6 @@ public class TestThread8Monitor05 {
             }
         }).start();
 
-        /*new Thread(new Runnable() {
-            @Override
-            public void run() {
-                number.getThree();
-            }
-        }).start();*/
     }
 
 }
@@ -38,11 +32,6 @@ public class TestThread8Monitor05 {
 class Number5 {
 
     public static synchronized void getOne() {
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-        }
-
         System.out.println("one");
     }
 
