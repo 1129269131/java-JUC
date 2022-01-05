@@ -3,15 +3,17 @@ package com.koala.jucsenior.test;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.experimental.Accessors;
 
 /**
- * @auther zzyy
- * @create 2021-03-10 10:13
+ * day05：
+ *      链式调用
+ * Create by koala on 2022-01-04
  */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-//@Accessors(chain = true)
+@Accessors(chain = true)//链式调用
 public class Book
 {
     private Integer id;

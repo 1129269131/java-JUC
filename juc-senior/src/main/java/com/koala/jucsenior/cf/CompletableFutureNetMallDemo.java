@@ -10,8 +10,8 @@ import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
 /**
- * @auther zzyy
- * @create 2021-03-08 15:28
+ * day04：
+ *      电商比价需求
  *
  * 案例说明：电商比价需求
  * 1 同一款产品，同时搜索出同款产品在各大电商的售价;
@@ -26,6 +26,8 @@ import java.util.stream.Collectors;
  *   3.1 函数式编程
  *   3.2 链式编程
  *   3.3 Stream流式计算
+ *
+ * Create by koala on 2022-01-04
  */
 public class CompletableFutureNetMallDemo
 {
@@ -38,7 +40,6 @@ public class CompletableFutureNetMallDemo
     );
 
     //同步 ，step by step
-
     /**
      * List<NetMall>  ---->   List<String>
      * @param list
@@ -52,8 +53,8 @@ public class CompletableFutureNetMallDemo
                 map(netMall -> String.format(productName + " in %s price is %.2f", netMall.getMallName(), netMall.calcPrice(productName)))
                 .collect(Collectors.toList());
     }
-    //异步 ，多箭齐发
 
+    //异步 ，多箭齐发
     /**
      * List<NetMall>  ---->List<CompletableFuture<String>> --->   List<String>
      * @param list

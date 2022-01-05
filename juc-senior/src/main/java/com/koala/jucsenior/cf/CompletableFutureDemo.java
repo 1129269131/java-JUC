@@ -69,4 +69,47 @@ public class CompletableFutureDemo {
 
         threadPoolExecutor.shutdown();
     }
+
+    @Test
+    public void m3() throws Exception {
+        System.out.println(CompletableFuture.supplyAsync(() -> {
+            //暂停几秒钟线程
+            try {
+                TimeUnit.SECONDS.sleep(1);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            return 1;
+        }).whenComplete((v, e) -> {
+            if(e == null){
+                System.out.println("------result：" + v);
+            }
+        }).exceptionally(e -> {
+            e.printStackTrace();
+            return null;
+        }).get());//get()方法需要抛出异常
+
+        System.out.println(CompletableFuture.supplyAsync(() -> {
+            //暂停几秒钟线程
+            try {
+                TimeUnit.SECONDS.sleep(1);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            return 2;
+        }).whenComplete((v, e) -> {
+            if(e == null){
+                System.out.println("------result：" + v);
+            }
+        }).exceptionally(e -> {
+            e.printStackTrace();
+            return null;
+        }).join());//jon()方法无需抛出异常
+
+
+        System.out.println("----------main over");
+
+        //主线程不要立刻结束，否则CompletableFuture默认使用的线程池会立刻关闭:暂停5秒钟线程
+        try { TimeUnit.SECONDS.sleep(5); } catch (InterruptedException e) { e.printStackTrace(); }
+    }
 }
