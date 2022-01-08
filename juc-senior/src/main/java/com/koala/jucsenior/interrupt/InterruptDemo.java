@@ -1,11 +1,15 @@
 package com.koala.jucsenior.interrupt;
 
+import org.junit.Test;
+
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
- * @auther zzyy
- * @create 2021-03-03 18:20
+ * day12：
+ *      中断
+ *
+ * Create by koala on 2022-01-06
  */
 public class InterruptDemo
 {
@@ -75,7 +79,11 @@ public class InterruptDemo
         System.out.println("t1.interrupt()调用之后03： "+t1.isInterrupted());
     }
 
-    public static void m3()
+    /**
+     * 通过Interrupt
+     */
+    @Test
+    public void m3()
     {
         Thread t1 = new Thread(() -> {
             while (true) {
@@ -98,7 +106,8 @@ public class InterruptDemo
     /**
      * 通过AtomicBoolean
      */
-    public static void m2()
+    @Test
+    public void m2()
     {
         new Thread(() -> {
             while(true)
@@ -123,7 +132,8 @@ public class InterruptDemo
     /**
      * 通过一个volatile变量实现
      */
-    public static void m1()
+    @Test
+    public void m1()
     {
         new Thread(() -> {
             while(true)
