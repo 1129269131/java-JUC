@@ -1,5 +1,7 @@
 package com.koala.jucsenior.interrupt;
 
+import org.junit.Test;
+
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
@@ -7,37 +9,56 @@ import java.util.concurrent.locks.LockSupport;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
- * @auther zzyy
- * @create 2020-07-10 14:05
+ * day13：
+ *      线程等待唤醒机制
+ *
+ * Create by koala on 2022-01-08
  */
 public class LockSupportDemo
 {
+    /**
+     * Object类中的wait和notify方法实现线程等待和唤醒：
+     *      1、wait和notify方法必须要在同步块或者方法里面，且成对出现使用
+     *      2、先wait后notify才OK
+     */
     static Object objectLock = new Object();
-
-    static Lock lock = new ReentrantLock();
-    static Condition condition = lock.newCondition();
-
-    public static void main(String[] args)
+    @Test
+    public void syncWaitNotify()
     {
-        Thread t1 = new Thread(() -> {
-            System.out.println(Thread.currentThread().getName() + "\t" + "---come in");
-            LockSupport.park();
-            LockSupport.park();
-            System.out.println(Thread.currentThread().getName() + "\t" + "---被唤醒");
-        }, "t1");
-        t1.start();
+        new Thread(() -> {
+            //暂停几秒钟线程
+            try { TimeUnit.SECONDS.sleep(3); } catch (InterruptedException e) { e.printStackTrace(); }
+            synchronized (objectLock){
+                System.out.println(Thread.currentThread().getName()+"\t"+"---come in");
+                try {
+                    objectLock.wait();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                System.out.println(Thread.currentThread().getName()+"\t"+"---被唤醒");
+            }
+        },"t1").start();
+
+        //暂停几秒钟线程
+        try { TimeUnit.SECONDS.sleep(1); } catch (InterruptedException e) { e.printStackTrace(); }
 
         new Thread(() -> {
-            LockSupport.unpark(t1);
-            try { TimeUnit.SECONDS.sleep(3); } catch (InterruptedException e) { e.printStackTrace(); }
-            LockSupport.unpark(t1);
-            System.out.println(Thread.currentThread().getName()+"\t"+"---发出通知");
+            synchronized (objectLock){
+                objectLock.notify();
+                System.out.println(Thread.currentThread().getName()+"\t"+"---发出通知");
+            }
         },"t2").start();
     }
 
-
-
-    public static void lockAwaitSignal()
+    /**
+     * Condition接口中的await后signal方法实现线程的等待和唤醒：
+     *      1、Condtion中的线程等待和唤醒方法之前，需要先获取锁
+     *      2、一定要先await后signal，不要反了
+     */
+    static Lock lock = new ReentrantLock();
+    static Condition condition = lock.newCondition();
+    @Test
+    public void lockAwaitSignal()
     {
         new Thread(() -> {
             //暂停几秒钟线程
@@ -67,30 +88,26 @@ public class LockSupportDemo
         },"t2").start();
     }
 
-    public static void syncWaitNotify()
+    /**
+     * LockSupport类中的park等待和unpark唤醒
+     */
+    @Test
+    public void lockSupport()
     {
+        Thread t1 = new Thread(() -> {
+            System.out.println(Thread.currentThread().getName() + "\t" + "---come in");
+            LockSupport.park();
+            LockSupport.park();
+            System.out.println(Thread.currentThread().getName() + "\t" + "---被唤醒");
+        }, "t1");
+        t1.start();
+
         new Thread(() -> {
-            //暂停几秒钟线程
+            LockSupport.unpark(t1);
             try { TimeUnit.SECONDS.sleep(3); } catch (InterruptedException e) { e.printStackTrace(); }
-            synchronized (objectLock){
-                System.out.println(Thread.currentThread().getName()+"\t"+"---come in");
-                try {
-                    objectLock.wait();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                System.out.println(Thread.currentThread().getName()+"\t"+"---被唤醒");
-            }
-        },"t1").start();
-
-        //暂停几秒钟线程
-        try { TimeUnit.SECONDS.sleep(1); } catch (InterruptedException e) { e.printStackTrace(); }
-
-        new Thread(() -> {
-            synchronized (objectLock){
-                objectLock.notify();
-                System.out.println(Thread.currentThread().getName()+"\t"+"---发出通知");
-            }
+            LockSupport.unpark(t1);
+            System.out.println(Thread.currentThread().getName()+"\t"+"---发出通知");
         },"t2").start();
     }
+
 }

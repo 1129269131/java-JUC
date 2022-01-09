@@ -1,15 +1,22 @@
 package com.koala.jucsenior.jmm;
 
+import org.junit.Test;
+
+import java.util.concurrent.TimeUnit;
+
 /**
- * @auther zzyy
- * @create 2021-03-15 19:13
+ * day14：
+ *      内存可见性
+ *
+ * Create by koala on 2022-01-08
  */
 public class VolatileSeeDemo
 {
-    //static          boolean flag = true;       //不加volatile，没有可见性
-    volatile boolean flag = true;       //加了volatile，保证可见性
+    boolean flag = true;       //不加volatile，没有可见性
+    //volatile boolean flag = true;       //加了volatile，保证可见性
 
-    /*public static void main(String[] args)
+    @Test
+    public void main()
     {
         new Thread(() -> {
             System.out.println(Thread.currentThread().getName()+"\t"+"---come in");
@@ -25,5 +32,5 @@ public class VolatileSeeDemo
         new Thread(() -> {
             flag = false;
         },"t2").start();
-    }*/
+    }
 }

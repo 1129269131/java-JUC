@@ -3,8 +3,10 @@ package com.koala.jucsenior.jmm;
 import java.util.concurrent.TimeUnit;
 
 /**
- * @auther zzyy
- * @create 2021-03-17 14:59
+ * day14：
+ *      volatile变量的复合操作(如i++)不具有原子性
+ *
+ * Create by koala on 2022-01-08
  */
 class MyNumber
 {
