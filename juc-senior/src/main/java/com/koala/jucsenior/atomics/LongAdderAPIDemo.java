@@ -5,8 +5,10 @@ import java.util.concurrent.atomic.LongAdder;
 import java.util.function.LongBinaryOperator;
 
 /**
- * @auther zzyy
- * @create 2021-03-19 15:59
+ * day26：
+ *      LongAdder&&longAccumulator
+ *
+ * Create by koala on 2022-01-09
  */
 public class LongAdderAPIDemo
 {
@@ -34,7 +36,5 @@ public class LongAdderAPIDemo
         longAccumulator.accumulate(3);//6
 
         System.out.println(longAccumulator.longValue());
-
-
     }
 }

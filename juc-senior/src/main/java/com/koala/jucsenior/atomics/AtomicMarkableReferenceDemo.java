@@ -4,8 +4,10 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicMarkableReference;
 
 /**
- * @auther zzyy
- * @create 2021-03-22 14:14
+ * day23：
+ *      AtomicMarkableReference
+ *
+ * Create by koala on 2022-01-09
  */
 public class AtomicMarkableReferenceDemo
 {

@@ -12,11 +12,10 @@ import java.util.concurrent.TimeUnit;
  */
 public class VolatileSeeDemo
 {
-    boolean flag = true;       //不加volatile，没有可见性
-    //volatile boolean flag = true;       //加了volatile，保证可见性
+    static          boolean flag = true;       //不加volatile，没有可见性
+    //static volatile boolean flag = true;       //加了volatile，保证可见性
 
-    @Test
-    public void main()
+    public static void main(String[] args)
     {
         new Thread(() -> {
             System.out.println(Thread.currentThread().getName()+"\t"+"---come in");

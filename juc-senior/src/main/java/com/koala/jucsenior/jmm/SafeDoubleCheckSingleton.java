@@ -1,8 +1,10 @@
 package com.koala.jucsenior.jmm;
 
 /**
- * @auther zzyy
- * @create 2021-03-17 15:00
+ * day16：
+ *      volatile的使用--》DCL双端锁
+ *
+ * Create by koala on 2022-01-09
  */
 public class SafeDoubleCheckSingleton
 {

@@ -4,13 +4,16 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicReference;
 
 /**
- * @auther zzyy
- * @create 2021-03-17 15:21
+ * day20：
+ *      自旋锁
+ *
  * 题目：实现一个自旋锁
  * 自旋锁好处：循环比较获取没有类似wait的阻塞。
  *
  * 通过CAS操作完成自旋锁，A线程先进来调用myLock方法自己持有锁5秒钟，B随后进来后发现
  * 当前有线程持有锁，不是null，所以只能通过自旋等待，直到A释放锁后B随后抢到。
+ *
+ * Create by koala on 2022-01-09
  */
 public class SpinLockDemo
 {

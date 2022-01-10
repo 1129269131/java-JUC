@@ -6,11 +6,11 @@ import java.util.concurrent.atomic.AtomicReferenceFieldUpdater;
 class MyVar
 {
     public volatile Boolean isInit = Boolean.FALSE;
-    AtomicReferenceFieldUpdater<MyVar,Boolean> FieldUpdater = AtomicReferenceFieldUpdater.newUpdater(MyVar.class,Boolean.class,"isInit");
+    AtomicReferenceFieldUpdater<MyVar,Boolean> fieldUpdater = AtomicReferenceFieldUpdater.newUpdater(MyVar.class,Boolean.class,"isInit");
 
     public void init(MyVar myVar)
     {
-        if(FieldUpdater.compareAndSet(myVar,Boolean.FALSE,Boolean.TRUE))
+        if(fieldUpdater.compareAndSet(myVar,Boolean.FALSE,Boolean.TRUE))
         {
             System.out.println(Thread.currentThread().getName()+"\t"+"---start init");
             try { TimeUnit.SECONDS.sleep(3); } catch (InterruptedException e) { e.printStackTrace(); }
@@ -24,9 +24,11 @@ class MyVar
 
 
 /**
- * @auther zzyy
- * @create 2021-03-22 15:20
- *  多线程并发调用一个类的初始化方法，如果未被初始化过，将执行初始化工作，要求只能初始化一次
+ * day25：
+ *      对象的属性修改原子类
+ *      多线程并发调用一个类的初始化方法，如果未被初始化过，将执行初始化工作，要求只能初始化一次
+ *
+ * Create by koala on 2022-01-09
  */
 public class AtomicReferenceFieldUpdaterDemo
 {

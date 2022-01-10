@@ -3,7 +3,7 @@ package com.koala.jucsenior.jmm;
 import java.util.concurrent.TimeUnit;
 
 /**
- * day14：
+ * day15：
  *      volatile变量的复合操作(如i++)不具有原子性
  *
  * Create by koala on 2022-01-08

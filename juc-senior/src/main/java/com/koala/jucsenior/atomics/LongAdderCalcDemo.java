@@ -44,10 +44,11 @@ class ClickNumber
 
 
 /**
- * @auther zzyy
- * @create 2021-03-19 16:08
+ * day27：
+ *      50个线程，每个线程100W次，总点赞数出来
+ *      不同统计方案性能测试
  *
- *  50个线程，每个线程100W次，总点赞数出来
+ * Create by koala on 2022-01-09
  */
 public class LongAdderCalcDemo
 {

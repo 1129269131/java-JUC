@@ -3,8 +3,10 @@ package com.koala.jucsenior.atomics;
 import java.util.concurrent.atomic.AtomicIntegerArray;
 
 /**
- * @auther zzyy
- * @create 2021-03-18 16:42
+ * day23：
+ *      数组类型原子类
+ *
+ * Create by koala on 2022-01-09
  */
 public class AtomicIntegerArrayDemo
 {

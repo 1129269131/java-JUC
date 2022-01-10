@@ -7,8 +7,10 @@ import lombok.ToString;
 import java.util.concurrent.atomic.AtomicReference;
 
 /**
- * @auther zzyy
- * @create 2021-03-19 22:13
+ * day19：
+ *      原子引用
+ *
+ * Create by koala on 2022-01-09
  */
 public class AtomicReferenceDemo
 {
@@ -25,6 +27,7 @@ public class AtomicReferenceDemo
         System.out.println(atomicReferenceUser.compareAndSet(z3,li4)+"\t"+atomicReferenceUser.get().toString());
     }
 }
+
 @Getter
 @ToString
 @AllArgsConstructor

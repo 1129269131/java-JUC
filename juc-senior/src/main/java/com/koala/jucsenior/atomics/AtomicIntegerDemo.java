@@ -14,8 +14,10 @@ class MyNumber
 }
 
 /**
- * @auther zzyy
- * @create 2021-03-17 16:26
+ * day22：
+ *      基本类型原子类
+ *
+ * Create by koala on 2022-01-09
  */
 public class AtomicIntegerDemo
 {
@@ -42,13 +44,11 @@ public class AtomicIntegerDemo
             },String.valueOf(i)).start();
         }
 
-        //try { TimeUnit.SECONDS.sleep(1); } catch (InterruptedException e) { e.printStackTrace(); }
+        //try { TimeUnit.SECONDS.sleep(1); } catch (InterruptedException e) { e.printStackTrace(); }//使用CountDownLatch替换使用
 
         countDownLatch.await();
 
         System.out.println(Thread.currentThread().getName()+"\t"+"---result : "+myNumber.atomicInteger.get());
-
-
     }
 }
 

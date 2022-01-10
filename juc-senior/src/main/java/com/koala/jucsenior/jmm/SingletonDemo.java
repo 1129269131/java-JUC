@@ -1,8 +1,10 @@
 package com.koala.jucsenior.jmm;
 
 /**
- * @auther zzyy
- * @create 2021-03-19 19:21
+ * day17：
+ *      采用静态内部类的方式实现单例模式
+ *
+ * Create by koala on 2022-01-09
  */
 public class SingletonDemo
 {
