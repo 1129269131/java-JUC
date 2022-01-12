@@ -1,6 +1,8 @@
 package com.koala.jucsenior.tl;
 
 
+import org.junit.Test;
+
 class MovieTicket
 {
     int number = 50;
@@ -38,18 +40,20 @@ class House
 }
 
 /**
- * @auther zzyy
- * @create 2021-03-23 15:03
+ * day28：
+ *      ThreadLocal
+ *
  * 1  三个售票员卖完50张票务，总量完成即可，吃大锅饭，售票员每个月固定月薪
  *
  * 2  分灶吃饭，各个销售自己动手，丰衣足食
+ *
+ * Create by koala on 2022-01-11
  */
 public class ThreadLocalDemo
 {
-    public static void main(String[] args)
-    {
-        /*MovieTicket movieTicket = new MovieTicket();
-
+    @Test
+    public void synchronizedTicket(){
+        MovieTicket movieTicket = new MovieTicket();
 
         for (int i = 1; i <=3; i++) {
             new Thread(() -> {
@@ -57,8 +61,11 @@ public class ThreadLocalDemo
                     movieTicket.saleTicket();
                 }
             },String.valueOf(i)).start();
-        }*/
+        }
+    }
 
+    public static void main(String[] args)
+    {
         House house = new House();
 
         new Thread(() -> {
