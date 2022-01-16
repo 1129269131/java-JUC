@@ -4,8 +4,10 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
- * @auther zzyy
- * @create 2021-03-27 15:46
+ * day35：
+ *      AQS源码解读
+ *
+ * Create by koala on 2022-01-15
  */
 public class AQSDemo
 {
@@ -14,7 +16,7 @@ public class AQSDemo
         ReentrantLock reentrantLock = new ReentrantLock();//非公平锁
 
         // A B C三个顾客，去银行办理业务，A先到，此时窗口空无一人，他优先获得办理窗口的机会，办理业务。
-        // A 耗时严重，估计长期占有窗口
+        // A 耗时严重，故意长期占有窗口
         new Thread(() -> {
             reentrantLock.lock();
             try

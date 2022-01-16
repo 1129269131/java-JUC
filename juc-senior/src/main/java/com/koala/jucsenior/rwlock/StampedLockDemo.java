@@ -4,8 +4,10 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.StampedLock;
 
 /**
- * @auther zzyy
- * @create 2021-03-29 11:35
+ * day37：
+ *  邮戳锁StampedLock
+ *
+ * Create by koala on 2022-01-16
  */
 public class StampedLockDemo
 {
@@ -85,13 +87,13 @@ public class StampedLockDemo
     {
         StampedLockDemo resource = new StampedLockDemo();
 
-        //1 悲观读,和ReentrantReadWriteLock一样
-        /*new Thread(() -> {
+        //1、悲观读,和ReentrantReadWriteLock一样
+        new Thread(() -> {
             //悲观读
             resource.read();
-        },"readThread").start();*/
+        },"readThread").start();
 
-        //2 乐观读，成功
+        //2、乐观读，成功
         /*new Thread(() -> {
             //乐观读
             resource.tryOptimisticRead();
@@ -100,11 +102,11 @@ public class StampedLockDemo
         //6秒钟乐观读取resource.tryOptimisticRead()成功
         try { TimeUnit.SECONDS.sleep(6); } catch (InterruptedException e) { e.printStackTrace(); }*/
 
-        //3 乐观读，失败，重新转为悲观读，重读数据一次
-        new Thread(() -> {
+        //3、乐观读，失败，重新转为悲观读，重读数据一次
+        /*new Thread(() -> {
             //乐观读
             resource.tryOptimisticRead();
-        },"readThread").start();
+        },"readThread").start();*/
 
         //2秒钟乐观读取resource.tryOptimisticRead()失败
         try { TimeUnit.SECONDS.sleep(2); } catch (InterruptedException e) { e.printStackTrace(); }

@@ -1,11 +1,12 @@
 package com.koala.jucsenior.lockupgrade;
 
 /**
- * @auther zzyy
- * @create 2021-03-27 15:17
- * 锁消除
- * 从JIT角度看相当于无视它，synchronized (o)不存在了,这个锁对象并没有被共用扩散到其它线程使用，
- * 极端的说就是根本没有加这个锁对象的底层机器码，消除了锁的使用
+ * day33：
+ *  锁消除
+ *      从JIT角度看相当于无视它，synchronized (o)不存在了,这个锁对象并没有被共用扩散到其它线程使用，
+ *      极端的说就是根本没有加这个锁对象的底层机器码，消除了锁的使用
+ *
+ * Create by koala on 2022-01-15
  */
 public class LockClearUPDemo
 {

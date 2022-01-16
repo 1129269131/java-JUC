@@ -20,8 +20,11 @@ class TrainTicket
 
 
 /**
- * @auther zzyy
- * @create 2021-03-27 11:27
+ * day32：
+ *      当一段同步代码一直被同一个线程多次访问，
+ *      由于只有一个线程那么该线程在后续访问时便会自动获得锁
+ *
+ * Create by koala on 2022-01-15
  */
 public class SaleTicketDemo
 {
@@ -33,7 +36,6 @@ public class SaleTicketDemo
         new Thread(() -> { for (int i = 1; i <=55 ; i++) trainTicket.sale(); },"t2").start();
         new Thread(() -> { for (int i = 1; i <=55 ; i++) trainTicket.sale(); },"t3").start();
         new Thread(() -> { for (int i = 1; i <=55 ; i++) trainTicket.sale(); },"t4").start();
-
 
     }
 }

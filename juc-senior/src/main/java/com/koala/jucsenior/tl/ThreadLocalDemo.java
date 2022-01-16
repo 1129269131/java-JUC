@@ -20,8 +20,6 @@ class MovieTicket
 
 class House
 {
-    private String houseName;
-
     ThreadLocal<Integer> threadLocal = ThreadLocal.withInitial(() -> 0);
     public void saleHouse()
     {

@@ -23,6 +23,7 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
         <!--
+        day31：
         官网：http://openjdk.java.net/projects/code-tools/jol/
         定位：分析对象在JVM的大小和分布
         -->
