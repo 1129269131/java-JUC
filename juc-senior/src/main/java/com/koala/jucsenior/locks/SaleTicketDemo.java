@@ -26,7 +26,6 @@ class Ticket
     }
 
 
-
     /*Object objectLock = new Object();
 
     public void sale()
@@ -44,6 +43,7 @@ class Ticket
 /**
  * day09：
  *      公平锁和非公平锁
+ *
  * Create by koala on 2022-01-05
  */
 public class SaleTicketDemo

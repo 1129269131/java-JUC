@@ -52,7 +52,7 @@ public class LockSupportDemo
 
     /**
      * Condition接口中的await后signal方法实现线程的等待和唤醒：
-     *      1、Condtion中的线程等待和唤醒方法之前，需要先获取锁
+     *      1、Condition中的线程等待和唤醒方法之前，需要先获取锁
      *      2、一定要先await后signal，不要反了
      */
     static Lock lock = new ReentrantLock();

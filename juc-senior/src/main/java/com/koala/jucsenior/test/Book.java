@@ -8,6 +8,7 @@ import lombok.experimental.Accessors;
 /**
  * day05：
  *      链式调用
+ *
  * Create by koala on 2022-01-04
  */
 @Data

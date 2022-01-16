@@ -7,6 +7,7 @@ import java.util.concurrent.*;
 /**
  * day06：
  *      CompletableFuture常用方法
+ *
  * Create by koala on 2022-01-04
  */
 public class CompletableFutureAPIDemo
@@ -14,9 +15,7 @@ public class CompletableFutureAPIDemo
 
     /**
      * 获得结果和触发计算：
-     *  测试：修改两个sleep查看运行结果
-     * @throws InterruptedException
-     * @throws ExecutionException
+     *      测试（1、2、3、4）：修改两个sleep值后执行查看运行结果
      */
     @Test
     public void m1() throws InterruptedException, ExecutionException
@@ -30,14 +29,15 @@ public class CompletableFutureAPIDemo
             return 1;
         },threadPoolExecutor);
 
-        //System.out.println(future.get());
-        //System.out.println(future.get(2L,TimeUnit.SECONDS));
+        //System.out.println(future.get());//1、不见不散
+        //System.out.println(future.get(2L,TimeUnit.SECONDS));//2、过时不候
 
         //暂停几秒钟线程
         try { TimeUnit.SECONDS.sleep(1); } catch (InterruptedException e) { e.printStackTrace(); }
-        //System.out.println(future.getNow(9999));
 
-        System.out.println(future.complete(-44)+"\t"+future.get());
+        //System.out.println(future.getNow(9999));//3、立即获取结果不阻塞
+
+        System.out.println(future.complete(-44)+"\t"+future.get());//4、是否打断get方法立即返回括号值
 
 
         threadPoolExecutor.shutdown();

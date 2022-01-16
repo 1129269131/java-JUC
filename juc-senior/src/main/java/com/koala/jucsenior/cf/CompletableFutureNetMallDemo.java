@@ -39,12 +39,9 @@ public class CompletableFutureNetMallDemo
             new NetMall("tmall")
     );
 
-    //同步 ，step by step
     /**
-     * List<NetMall>  ---->   List<String>
-     * @param list
-     * @param productName
-     * @return
+     * 同步 ，step by step：
+     *      List<NetMall>  ---->  List<String>
      */
     public static List<String> getPriceByStep(List<NetMall> list,String productName)
     {
@@ -54,12 +51,9 @@ public class CompletableFutureNetMallDemo
                 .collect(Collectors.toList());
     }
 
-    //异步 ，多箭齐发
     /**
-     * List<NetMall>  ---->List<CompletableFuture<String>> --->   List<String>
-     * @param list
-     * @param productName
-     * @return
+     * 异步 ，多箭齐发：
+     *      List<NetMall> ----> List<CompletableFuture<String>> ---> List<String>
      */
     public static List<String> getPriceByASync(List<NetMall> list,String productName)
     {
@@ -82,7 +76,7 @@ public class CompletableFutureNetMallDemo
         long endTime = System.currentTimeMillis();
         System.out.println("----costTime: "+(endTime - startTime) +" 毫秒");
 
-        System.out.println();
+        System.out.println("-------------------------------------------------");
 
         long startTime2 = System.currentTimeMillis();
         List<String> list2 = getPriceByASync(list, "mysql");
@@ -91,7 +85,6 @@ public class CompletableFutureNetMallDemo
         }
         long endTime2 = System.currentTimeMillis();
         System.out.println("----costTime: "+(endTime2 - startTime2) +" 毫秒");
-
     }
 }
 

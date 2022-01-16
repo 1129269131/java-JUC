@@ -30,6 +30,5 @@ public class SafeDoubleCheckSingleton
     public static void main(String[] args)
     {
         SafeDoubleCheckSingleton instance = SafeDoubleCheckSingleton.getInstance();
-
     }
 }
