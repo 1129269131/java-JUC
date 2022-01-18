@@ -5,7 +5,7 @@ import java.util.concurrent.atomic.LongAdder;
 import java.util.function.LongBinaryOperator;
 
 /**
- * day26：
+ * day27：
  *      LongAdder&&longAccumulator
  *
  * Create by koala on 2022-01-09

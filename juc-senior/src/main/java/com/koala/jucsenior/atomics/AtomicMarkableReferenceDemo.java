@@ -4,7 +4,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicMarkableReference;
 
 /**
- * day23：
+ * day24：
  *      AtomicMarkableReference
  *
  * Create by koala on 2022-01-09

@@ -4,7 +4,7 @@ import org.junit.Test;
 import org.openjdk.jol.info.ClassLayout;
 
 /**
- * day32：
+ * day33：
  *      synchronized锁种类及升级步骤
  *
  * Create by koala on 2022-01-13

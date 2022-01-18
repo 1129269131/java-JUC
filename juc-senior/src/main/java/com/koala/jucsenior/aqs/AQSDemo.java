@@ -4,7 +4,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
- * day35：
+ * day36：
  *      AQS源码解读
  *
  * Create by koala on 2022-01-15

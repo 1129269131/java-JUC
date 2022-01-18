@@ -4,9 +4,9 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 /**
- * day36：
+ * day38：
  *      锁降级
- *          锁降级：遵循获取写锁→再获取读锁→再释放写锁的次序，写锁能够降级成为读锁。
+ *          锁降级：遵循获取写锁 → 再获取读锁 → 再释放写锁的次序，写锁能够降级成为读锁。
  *          如果一个线程占有了写锁，在不释放写锁的情况下，它还能占有读锁，即写锁降级为读锁。
  *
  * Create by koala on 2022-01-16

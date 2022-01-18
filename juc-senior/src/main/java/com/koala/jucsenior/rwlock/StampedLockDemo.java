@@ -4,7 +4,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.StampedLock;
 
 /**
- * day37：
+ * day39：
  *  邮戳锁StampedLock
  *
  * Create by koala on 2022-01-16

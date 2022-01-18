@@ -24,7 +24,7 @@ class BankAccount
 
 
 /**
- * day24：
+ * day25：
  *      对象的属性修改原子类
  *
  * Create by koala on 2022-01-09

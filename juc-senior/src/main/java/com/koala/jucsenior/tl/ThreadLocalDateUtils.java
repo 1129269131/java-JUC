@@ -9,7 +9,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 /**
- * day29：
+ * day30：
  *      ThreadLocal解决SimpleDateFormat线程不安全问题
  * Create by koala on 2022-01-11
  */
@@ -21,9 +21,15 @@ public class ThreadLocalDateUtils
         return sdf.parse(stringDate);
     }
 
+    public static void main(String[] args) throws ParseException {
+        //m1();//1
+        //m2();//2
+        //m3();//3
+        m4();//4
+    }
+
     // 问题：非线程安全的SimpleDateFormat
-    @Test
-    public void m1() throws ParseException
+    public static void m1() throws ParseException
     {
         for (int i = 1; i <=10; i++) {
             new Thread(() -> {
@@ -37,8 +43,7 @@ public class ThreadLocalDateUtils
     }
 
     // 解决1：将SimpleDateFormat定义成局部变量。
-    @Test
-    public void m2() throws ParseException
+    public static void m2() throws ParseException
     {
         for (int i = 1; i <=10; i++) {
             new Thread(() -> {
@@ -61,8 +66,7 @@ public class ThreadLocalDateUtils
     }
 
     // 解决2：ThreadLocal
-    @Test
-    public void m3() throws ParseException
+    public static void m3() throws ParseException
     {
         for (int i = 1; i <=10; i++) {
             new Thread(() -> {
@@ -90,13 +94,11 @@ public class ThreadLocalDateUtils
 
     public static LocalDateTime parsLocalDateTime(String dateString)
     {
-
         return LocalDateTime.parse(dateString,DATE_TIME_FORMAT);
     }
 
     // 解决3：DateTimeFormatter 代替 SimpleDateFormat
-    @Test
-    public void m4(){
+    public static void m4(){
         for (int i = 1; i <=10; i++) {
             new Thread(() -> {
                 System.out.println(ThreadLocalDateUtils.parsLocalDateTime("2011-11-11 11:11:11"));

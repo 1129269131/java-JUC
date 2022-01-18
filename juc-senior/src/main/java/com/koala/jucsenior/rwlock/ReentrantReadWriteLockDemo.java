@@ -85,7 +85,7 @@ class MyResource2
 }
 
 /**
- * day36：
+ * day37：
  *      ReentrantLock、ReentrantReadWriteLock
  *
  * Create by koala on 2022-01-15

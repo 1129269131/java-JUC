@@ -16,7 +16,7 @@ class MyObject {
 }
 
 /**
- * day30：
+ * day31：
  *      强引用、软引用、弱引用、虚引用
  * Create by koala on 2022-01-12
  */

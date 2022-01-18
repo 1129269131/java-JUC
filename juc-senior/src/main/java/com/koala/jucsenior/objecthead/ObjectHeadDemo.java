@@ -3,7 +3,7 @@ package com.koala.jucsenior.objecthead;
 import org.openjdk.jol.info.ClassLayout;
 
 /**
- * day31：
+ * day32：
  *      对象布局说明和压缩指针
  *
  *  尾巴参数：
