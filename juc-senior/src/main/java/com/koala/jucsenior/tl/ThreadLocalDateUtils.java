@@ -75,7 +75,7 @@ public class ThreadLocalDateUtils
                 } catch (ParseException e) {
                     e.printStackTrace();
                 }finally {
-                    //remove();
+                    sdfThreadLocal.remove();
                 }
             },String.valueOf(i)).start();
         }

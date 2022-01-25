@@ -108,6 +108,8 @@ public class LockSupportDemo
             LockSupport.unpark(t1);
             System.out.println(Thread.currentThread().getName()+"\t"+"---发出通知");
         },"t2").start();
+
+        try { TimeUnit.SECONDS.sleep(5); } catch (InterruptedException e) { e.printStackTrace(); }
     }
 
 }

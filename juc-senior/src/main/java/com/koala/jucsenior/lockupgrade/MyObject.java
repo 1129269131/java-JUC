@@ -23,24 +23,18 @@ public class MyObject
         lightweightLock();
     }
 
-    /**
-     * 轻锁：
-     *     测试：
-     *         1、Edit Configurations... --》VM options --》设置参数：-XX:-UseBiasedLocking
-     *         2、执行查看结果
-     */
-    public static void lightweightLock()
+    // 无锁
+    public static void noLock()
     {
         Object o = new Object();
+        System.out.println(o.hashCode());//10进制
+        System.out.println(Integer.toHexString(o.hashCode()));//16进制
+        System.out.println(Integer.toBinaryString(o.hashCode()));//2进制
 
-        new Thread(() ->
-        {
-            synchronized (o)
-            {
-                System.out.println( ClassLayout.parseInstance(o).toPrintable());
-            }
+        //00100011111111000110001001011110
+        //  100011111111000110001001011110
 
-        },"t1").start();
+        System.out.println( ClassLayout.parseInstance(o).toPrintable());
     }
 
     /**
@@ -66,17 +60,23 @@ public class MyObject
         },"t1").start();
     }
 
-    // 无锁
-    public static void noLock()
+    /**
+     * 轻锁：
+     *     测试：
+     *         1、Edit Configurations... --》VM options --》设置参数：-XX:-UseBiasedLocking
+     *         2、执行查看结果
+     */
+    public static void lightweightLock()
     {
         Object o = new Object();
-        System.out.println(o.hashCode());//10进制
-        System.out.println(Integer.toHexString(o.hashCode()));//16进制
-        System.out.println(Integer.toBinaryString(o.hashCode()));//2进制
 
-        //00100011111111000110001001011110
-        //  100011111111000110001001011110
+        new Thread(() ->
+        {
+            synchronized (o)
+            {
+                System.out.println( ClassLayout.parseInstance(o).toPrintable());
+            }
 
-        System.out.println( ClassLayout.parseInstance(o).toPrintable());
+        },"t1").start();
     }
 }
